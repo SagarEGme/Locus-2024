@@ -1,41 +1,42 @@
 .card {
     border: 1px solid black;
     box-shadow: 6px 6px 17px 0px rgba(0, 0, 0, 0.67);
-    -webkit-box-shadow: 6px 6px 17px 0px #000000ab;
-    -moz-box-shadow: 6px 6px 17px 0px rgba(0, 0, 0, 0.67);
     width: 50%;
     border-radius: 20px;
-    height: 50%;
     padding: 10px;
     margin: 10px;
     transition: all 0.3s;
     background-color: #f3eaea;
+
 }
+
 img {
     width: 14rem;
     height: 14rem;
-    transform: scale(0.7);
     border-radius: 50%;
     transition: 0.2s all;
-    background-position: center;
-    background-size: cover;
-    filter: grayscale(.04);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
 }
-.card:hover img{
+
+.card:hover img {
     filter: grayscale(0);
     cursor: pointer;
 }
-.card:hover .social-links a{
-    color:#fff;
+
+.card:hover h3,
+.card:hover h5,
+.card:hover .social-links a {
+    color: #fff;
 }
-.card:hover{
-    background-color: #654decab;
+
+.card:hover {
+    background-color: #27374D;
     cursor: pointer;
 }
-
-
-
-
 
 .card h3 {
     text-align: center;
@@ -48,30 +49,34 @@ img {
     text-align: center;
     position: relative;
     font-weight: 500;
-    margin-bottom:20px;
-}
-.card h5::after{
-        content:"";
-        width:10rem;
-        height:.2rem;
-        background-color: blueviolet;
-        position: absolute;
-        bottom:-5px;
-        left:50%;
-        transform: translateX(-50%);
-        border-radius: 2rem;
+    margin-bottom: 20px;
 }
 
-.card p{
+.card h5::after {
+    content: "";
+    width: 10rem;
+    height: .2rem;
+    background-color: blueviolet;
+    position: absolute;
+    bottom: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2rem;
+}
+
+.card p {
     text-align: center;
 }
-.social-links{
+
+.social-links {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap:20px;
+    gap: 20px;
 }
-.social-links a{
+
+.social-links a {
     cursor: pointer;
     font-size: 24px;
+    color:#143c78;
 }

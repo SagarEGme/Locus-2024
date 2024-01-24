@@ -21,10 +21,6 @@ const Hero = () => {
     }
     const addCityfn = () => {
         setCityList([...citylist, addcity]);
-        setTimeout(() => {
-            alert(`You added ${addcity}`)
-        }, 1000);
-
     }
     return (
         <div className='hero'>

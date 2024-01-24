@@ -1,18 +1,15 @@
 header {
-    background-color: rgba(37, 38, 38, 0.661);
+    /* background-color: rgba(37, 38, 38, 0.661); */
+    background-color: #27374D;
     box-shadow: 0px 9px 14px -1px rgba(37,38,38,0.47);
     backdrop-filter: blur(2.5px);
     -webkit-backdrop-filter: blur(3.5px);
     padding: 0px 10px;
 }
-
-
 .items {
     display: flex;
     gap: 70px;
-    margin-left: 45px;
 }
-
 .items span {
     font-size: 27px;
     padding: 10px 0;
@@ -22,6 +19,7 @@ header {
     text-decoration: none;
     color: rgb(204, 199, 199);
     font-weight: 470;
+    margin-left: 30px;
 }
 .items a.active {
     color: rgb(255, 255, 255);

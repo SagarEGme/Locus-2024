@@ -1,0 +1,23 @@
+.notFound{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+}
+h4{
+    font-size: 48px;
+    font-weight: 600;
+}
+p{
+    font-size: 20px;
+    font-weight: 450;
+}
+button{
+    margin-top: 10px;
+    font-size: 15px;
+    font-weight: 500;
+}

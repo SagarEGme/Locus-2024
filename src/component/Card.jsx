@@ -1,20 +1,22 @@
 import React from 'react'
 import './card.css'
-import { FaFacebook, FaGithub, FaInstagram } from "react-icons/fa";
+import { FaFacebook, FaGithub,  FaLinkedin } from "react-icons/fa";
 
-const Card = ({ photoURL, name, area, fb, gh, ig }) => {
+const Card = ({ photoURL, name, area, fb, gh, lk }) => {
     return (
         <div className='card'>
-            <img src={photoURL} alt="" className='image' />
+            <div className="image">
+                <img src={photoURL} alt="" />
+            </div>
             <h3>{name}</h3>
             <h5>{area}</h5>
             <div className="social-links">
 
-                <p><a href={fb}><FaFacebook />
+                <p><a target="_blank" href={fb}><FaFacebook />
                 </a></p>
-                <p><a href={gh}><FaGithub />
+                <p><a target="_blank" href={gh}><FaGithub />
                 </a></p>
-                <p><a href={ig}><FaInstagram />
+                <p><a target="_blank" href={lk}><FaLinkedin />
                 </a></p>
             </div>
         </div>
