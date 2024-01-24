@@ -1,0 +1,32 @@
+.team-section h2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    font-size: 2.5rem;
+    letter-spacing: 3px;
+    position: relative;
+    margin-bottom: 30px;
+}
+.team-section h2::after{
+    content:"";
+    width:10rem;
+    height:.5rem;
+    background-color: blueviolet;
+    position: absolute;
+    bottom:-1rem;
+    left:50%;
+    transform: translateX(-50%);
+    border-radius: 2rem;
+
+}
+.card-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width:80%;
+    padding:20px;
+    position: absolute;
+    left:50%;
+    transform: translateX(-50%);
+}

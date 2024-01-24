@@ -1,0 +1,74 @@
+ .chart {
+     margin-bottom: 30px;
+ }
+
+ .lineT {
+     width: 80vw;
+     margin: 30px auto;
+     padding: 20px;
+     border: 2px solid black;
+     box-shadow: 6px 11px 19px -10px rgba(0, 0, 0, 0.8);
+     border-radius: 10px;
+ }
+
+ .detailsActive {
+     display: block;
+     height: 30vh;
+     display: flex;
+     flex-direction: column;
+     flex-wrap: wrap;
+     width: 30vw;
+     position: relative;
+    }
+    
+    .status-content {
+        padding:0;
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        position: absolute;
+        flex-direction: column;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        gap: 20px;
+ }
+ .status-content h4{
+    font-size: 20px;
+ }
+ .status-content span{
+    font-size: 15px;
+ }
+ .Danger{
+    border:red;
+    background-color: rgba(252, 74, 74, 0.897);
+ }
+ .Safe{
+    border:green;
+    background-color: rgba(64, 255, 64, 0.646);
+ }
+
+ .detailsActive span {
+     color: rgba(32, 33, 34, 0.848);
+ }
+
+ .details {
+     display: none;
+     height: 50vh;
+ }
+
+ button {
+     display: block;
+     margin: 0 auto;
+     padding: 10px;
+     font-size: 18px;
+     border: none;
+     border: 1px solid black;
+     border-radius: 13px;
+ }
+
+ button:hover {
+     background-color: rgb(37, 36, 35);
+     color: rgb(234, 227, 227);
+ }
