@@ -10,12 +10,15 @@ defaults.font.size = 16;
 defaults.font.weight = "bold";
 
 const Pulchowk = () => {
-  const [chartData, setChartData] = useState({});
+  const [chartData, setChartData] = useState([]);
   const [detailsActiveT, setDetailsActiveT] = useState(false);
   const [detailsActiveH, setDetailsActiveH] = useState(false);
   const [detailsActiveP, setDetailsActiveP] = useState(false);
+  const [isLoading, setIsLoading] = useState(true)
   useEffect(() => {
     callApi();
+    // callApi().then((d)=> setChartData(d));
+    // console.log(chartData);
   }, [])
 
   const showDetailsT = () => {
@@ -34,21 +37,24 @@ const Pulchowk = () => {
     }, 300);
   }
 
-  const callApi = async () => {
-    const response = await fetch("https://api.thingspeak.com/channels/2407547/feeds.json")
-    const dataR = await response.json()
-        setChartData(dataR)
-        console.log(chartData)
-        console.log("hello")
+  async function callApi() {
+
+    const dataM = await fetch("https://api.thingspeak.com/channels/2407547/feeds.json")
+      .then(response =>  response.json())
+      .then((data)=>data)
+      if(dataM){
+        setChartData(dataM)
+        console.log(dataM)
+      }
+      console.log(chartData)
   }
-  
-  const sumData1 = chartData.feeds.map((data) => parseInt(data.field1))
+  const sumData1 = chartData?.feeds.map((data) => parseInt(data.field1))
   const avData1 = (Object.values(sumData1).reduce((a, b) => { return a + b }, 0)) / 100;
 
-  const sumData2 = chartData.feeds.map((data) => parseInt(data.field2))
+  const sumData2 = chartData?.feeds.map((data) => parseInt(data.field2))
   const avData2 = (Object.values(sumData2).reduce((a, b) => { return a + b }, 0)) / 100;
 
-  const sumData3 = chartData.feeds.map((data) => parseInt(data.field3))
+  const sumData3 = chartData?.feeds.map((data) => parseInt(data.field3))
   const avData3 = (Object.values(sumData3).reduce((a, b) => { return a + b }, 0)) / 100;
   const statusChecker = (avg0, avgR) => {
     if (avg0 > (avgR + 5)) {
@@ -66,12 +72,12 @@ const Pulchowk = () => {
         <div className={`lineT ${detailsActiveT ? "details" : ""}`}>
 
           <Line data={{
-            labels: chartData.feeds.map((data) => data.created_at.slice(11, 19)),
+            labels: chartData?.feeds.map((data) => data.created_at.slice(11, 19)),
 
             datasets: [
               {
                 label: "Temperature",
-                data: chartData.feeds.map((data) => data.field1),
+                data: chartData?.feeds.map((data) => data.field1),
                 backgroundColor: "#064FF0",
                 borderColor: "#064FF0",
                 hoverBackgroundColor: "#fff",
@@ -116,13 +122,13 @@ const Pulchowk = () => {
         <div className={`lineT ${detailsActiveP ? "details" : ""}`}>
 
           <Line data={{
-            labels: chartData.feeds.map((data) => data.created_at.slice(11, 19)),
+            labels: chartData?.feeds.map((data) => data.created_at.slice(11, 19)),
 
             datasets: [
 
               {
                 label: "PM Index 2.5",
-                data: chartData.feeds.map((data) => data.field3),
+                data: chartData?.feeds.map((data) => data.field3),
                 backgroundColor: "#19F6C0",
                 borderColor: "#19F6C0"
               }
@@ -166,13 +172,13 @@ const Pulchowk = () => {
         <div className={`lineT ${detailsActiveH ? "details" : ""}`}>
 
           <Line data={{
-            labels: chartData.feeds.map((data) => data.created_at.slice(11, 19)),
+            labels: chartData?.feeds.map((data) => data.created_at.slice(11, 19)),
 
             datasets: [
 
               {
                 label: "Humidity",
-                data: chartData.feeds.map((data) => data.field2),
+                data: chartData?.feeds.map((data) => data.field2),
                 backgroundColor: "#6700CD",
                 borderColor: "#6700CD"
               }
