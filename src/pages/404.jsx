@@ -1,5 +1,6 @@
 import React from 'react'
 import "./404.css"
+import PulSlider from './PulSlider'
 import { useNavigate } from 'react-router-dom'
 const Error = () => {
   const navigate = useNavigate()
@@ -7,11 +8,12 @@ const Error = () => {
     navigate("/");
   }
   return (
-    <div className='notFound'>
-      <h4>We dont have sensors in here .</h4>
-      <p>Please add the city it in home page.</p>
-      <button onClick={goHome}>Home Page</button>
-    </div>
+    // <div className='notFound'>
+    //   <h4>We dont have sensors in here .</h4>
+    //   <p>Please add the city it in home page.</p>
+    //   <button onClick={goHome}>Home Page</button>
+    // </div>
+    <PulSlider/>
   )
 }
 

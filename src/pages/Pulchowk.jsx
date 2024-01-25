@@ -4,6 +4,21 @@ import { Bar, Line } from "react-chartjs-2"
 import "./pulchowk.css"
 import Loader from '../component/Loader';
 
+// slider
+// Import Swiper React components
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/effect-coverflow';
+import 'swiper/css/pagination';
+
+import './PulSlider.css';
+
+// import required modules
+import { EffectCoverflow, Pagination } from 'swiper/modules';
+// sliderends
+
 
 // defaults.plugins.title.font.size=40;
 defaults.plugins.title.color = 'black';
@@ -15,27 +30,34 @@ const Pulchowk = () => {
   const [detailsActiveT, setDetailsActiveT] = useState(false);
   const [detailsActiveH, setDetailsActiveH] = useState(false);
   const [detailsActiveP, setDetailsActiveP] = useState(false);
-  const [isLoading, setIsLoading] = useState(true)
-  // useEffect(() => {
-  //   callApi();
-  //   // callApi().then((d)=> setChartData(d));
-  //   // console.log(chartData);
-  // }, [])
+
 
   const showDetailsT = () => {
-    setTimeout(() => {
-      setDetailsActiveT(!detailsActiveT);
-    }, 300);
+    if(detailsActiveH){
+      setDetailsActiveH(false)
+    }
+    if(detailsActiveP){
+      setDetailsActiveP(false)
+    }
+    setDetailsActiveT(!detailsActiveT);
   }
   const showDetailsP = () => {
-    setTimeout(() => {
-      setDetailsActiveP(!detailsActiveP);
-    }, 300);
+    if(detailsActiveH){
+      setDetailsActiveH(false)
+    }
+    if(detailsActiveT){
+      setDetailsActiveT(false)
+    }
+    setDetailsActiveP(!detailsActiveP);
   }
-  const showDetailsH = () => {
-    setTimeout(() => {
-      setDetailsActiveH(!detailsActiveH);
-    }, 300);
+  const showDetailsH = () =>{
+    if(detailsActiveT){
+      setDetailsActiveT(false)
+    }
+    if(detailsActiveP){
+      setDetailsActiveP(false)
+    }
+    setDetailsActiveH(!detailsActiveH);
   }
   useEffect(() => {
     let isMounted = true;
@@ -67,162 +89,192 @@ const Pulchowk = () => {
 
   return (
     <>
-
       {chartData && chartData.feeds ? (<>
 
         <div className="chart">
-          <div className={`lineT ${detailsActiveT ? "details" : ""}`}>
-
-            <Line data={{
-              labels: chartData?.feeds.map((data) => data.created_at.slice(11, 19)),
-
-              datasets: [
-                {
-                  label: "Temperature",
-                  data: chartData?.feeds.map((data) => data.field1),
-                  backgroundColor: "#064FF0",
-                  borderColor: "#064FF0",
-                  hoverBackgroundColor: "#fff",
-                }
-              ]
-
+          <Swiper
+            effect={'coverflow'}
+            grabCursor={true}
+            centeredSlides={true}
+            slidesPerView={3}
+            coverflowEffect={{
+              rotate: 50,
+              stretch: 0,
+              depth: 100,
+              modifier: 1,
+              slideShadows: true,
             }}
-              options={{
-                scales: {
-                  x: {
-                    ticks: {
-                      font: {
-                        weight: "bold"
+            pagination={true}
+            modules={[EffectCoverflow, Pagination]}
+            className="mySwiper"
+          >
+            <SwiperSlide>
+              <div className="lineT">
+
+
+                <Line data={{
+                  labels: chartData?.feeds.map((data) => data.created_at.slice(11, 19)),
+                  datasets: [
+                    {
+                      label: "Temperature",
+                      data: chartData?.feeds.map((data) => data.field1),
+                      backgroundColor: "#064FF0",
+                      borderColor: "#064FF0",
+                      hoverBackgroundColor: "#fff",
+                    }
+                  ]
+                }}
+                  options={{
+                    scales: {
+                      x: {
+                        ticks: {
+                          font: {
+                            weight: "bold"
+                          }
+                        }
+                      },
+                      y: {
+                        ticks: {
+                          font: {
+                            weight: "bold"
+                          }
+                        }
                       }
                     }
-                  },
-                  y: {
-                    ticks: {
-                      font: {
-                        weight: "bold"
+
+                  }}
+                />
+              </div>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div className="lineT">
+
+                <Line data={{
+                  labels: chartData?.feeds.map((data) => data.created_at.slice(11, 19)),
+
+                  datasets: [
+
+                    {
+                      label: "PM Index 2.5",
+                      data: chartData?.feeds.map((data) => data.field3),
+                      backgroundColor: "#19F6C0",
+                      borderColor: "#19F6C0"
+                    }
+                  ]
+
+                }}
+                  options={{
+                    scales: {
+                      x: {
+                        ticks: {
+                          font: {
+                            weight: "bold"
+                          }
+                        }
+                      },
+                      y: {
+                        ticks: {
+                          font: {
+                            weight: "bold"
+                          }
+                        }
                       }
                     }
-                  }
-                }
+                  }}
+                />
 
-              }}
-            />
-          </div>
-          <div className={`lineT ${detailsActiveT ? "detailsActive" : "details"} ${statusChecker(Object.values(chartData?.feeds.map((data) => parseInt(data.field1))).reduce((a, b) => { return a + b }, 0) / 100, 30)}`}>
-            <div className="status-content">
+              </div>
+            </SwiperSlide>
+            <SwiperSlide>
+              <div className="lineT">
+                <Line data={{
+                  labels: chartData?.feeds.map((data) => data.created_at.slice(11, 19)),
+                  datasets: [
+                    {
+                      label: "Humidity",
+                      data: chartData?.feeds.map((data) => data.field2),
+                      backgroundColor: "#6700CD",
+                      borderColor: "#6700CD"
+                    }
+                  ]
+                }}
+                  options={{
+                    scales: {
+                      x: {
+                        ticks: {
+                          font: {
+                            weight: "bold"
+                          }
+                        }
+                      },
+                      y: {
+                        ticks: {
+                          font: {
+                            weight: "bold"
+                          }
+                        }
+                      }
+                    }
+                  }}
+                />
 
-              <h4> Obtained Average Value : <span>{Object.values(chartData?.feeds.map((data) => parseInt(data.field1))).reduce((a, b) => { return a + b }, 0) / 100};
-              </span></h4>
-              <h4> Required Average Value : <span>30</span></h4>
-              <h4> Status : <span>{statusChecker(Object.values(chartData?.feeds.map((data) => parseInt(data.field1))).reduce((a, b) => { return a + b }, 0) / 100, 30)}</span></h4>
+              </div>
+            </SwiperSlide>
+
+
+          </Swiper>
+          <div className="details-section">
+
+            <div className={`lineT ${detailsActiveT ? "detailsActive" : "details"} ${statusChecker(Object.values(chartData?.feeds.map((data) => parseInt(data.field1))).reduce((a, b) => { return a + b }, 0) / 100, 30)}`}>
+              <div className="status-content">
+                <h2>Temperature</h2>
+
+                <h4> Obtained Average Value : <span>{Object.values(chartData?.feeds.map((data) => parseInt(data.field1))).reduce((a, b) => { return a + b }, 0) / 100};
+                </span></h4>
+                <h4> Required Average Value : <span>30</span></h4>
+                <h4> Status : <span>{statusChecker(Object.values(chartData?.feeds.map((data) => parseInt(data.field1))).reduce((a, b) => { return a + b }, 0) / 100, 30)}</span></h4>
+              </div>
+
             </div>
+            <button onClick={() => {
+              showDetailsT();
 
-          </div>
-          <button onClick={() => {
-            showDetailsT();
+            }}>{detailsActiveT ? "Hide Remark of Temperature" : "Show Remark about Temperature"}</button>
 
-          }}>{detailsActiveT ? "Show chart of Temperature" : "Show Remark about Temperature"}</button>
-          <div className={`lineT ${detailsActiveP ? "details" : ""}`}>
+            <div className={`lineT ${detailsActiveP ? "detailsActive" : "details"} ${statusChecker(Object.values(chartData?.feeds.map((data) => parseInt(data.field1))).reduce((a, b) => { return a + b }, 0) / 100, 30)}`}>
+              <div className="status-content">
+<h2>PM Index 2.5</h2>
+                <h4> Obtained Average Value : <span>{Object.values(chartData?.feeds.map((data) => parseInt(data.field2))).reduce((a, b) => { return a + b }, 0) / 100}</span></h4>
+                <h4> Required Average Value : 70 </h4>
+                <h4> Status : <span>{statusChecker(Object.values(chartData?.feeds.map((data) => parseInt(data.field2))).reduce((a, b) => { return a + b }, 0) / 100, 30)}</span></h4>
+              </div>
 
-            <Line data={{
-              labels: chartData?.feeds.map((data) => data.created_at.slice(11, 19)),
-
-              datasets: [
-
-                {
-                  label: "PM Index 2.5",
-                  data: chartData?.feeds.map((data) => data.field3),
-                  backgroundColor: "#19F6C0",
-                  borderColor: "#19F6C0"
-                }
-              ]
-
-            }}
-              options={{
-                scales: {
-                  x: {
-                    ticks: {
-                      font: {
-                        weight: "bold"
-                      }
-                    }
-                  },
-                  y: {
-                    ticks: {
-                      font: {
-                        weight: "bold"
-                      }
-                    }
-                  }
-                }
-              }}
-            />
-
-          </div>
-          <div className={`lineT ${detailsActiveP ? "detailsActive" : "details"} ${statusChecker(Object.values(chartData?.feeds.map((data) => parseInt(data.field1))).reduce((a, b) => { return a + b }, 0) / 100, 30)}`}>
-            <div className="status-content">
-
-              <h4> Obtained Average Value : <span>{Object.values(chartData?.feeds.map((data) => parseInt(data.field2))).reduce((a, b) => { return a + b }, 0) / 100}</span></h4>
-              <h4> Required Average Value : </h4>
-              <h4> Status : <span>{statusChecker(Object.values(chartData?.feeds.map((data) => parseInt(data.field2))).reduce((a, b) => { return a + b }, 0) / 100, 30)}</span></h4>
             </div>
+            <button onClick={() => {
+              showDetailsP();
 
-          </div>
-          <button onClick={() => {
-            showDetailsP();
+            }}>{detailsActiveP ? "Hide Remark of PM Index" : "Show Remark about PM Index"}</button>
 
-          }}>{detailsActiveP ? "Show chart of PM Index" : "Show Remark about PM Index"}</button>
-          <div className={`lineT ${detailsActiveH ? "details" : ""}`}>
+            <div className={`lineT ${detailsActiveH ? "detailsActive" : "details"} ${statusChecker(Object.values(chartData?.feeds.map((data) => parseInt(data.field3))).reduce((a, b) => { return a + b }, 0) / 100, 100)}`}>
+              <div className="status-content">
+                <h2>Humidity</h2>
+                <h4> Obtained Average Value : <span>{Object.values(chartData?.feeds.map((data) => parseInt(data.field3))).reduce((a, b) => { return a + b }, 0) / 100}</span></h4>
+                <h4> Required Average Value : <span>100</span></h4>
+                <h4> Status : <span>{statusChecker(Object.values(chartData?.feeds.map((data) => parseInt(data.field1))).reduce((a, b) => { return a + b }, 0) / 100, 100)}</span></h4>
+              </div>
 
-            <Line data={{
-              labels: chartData?.feeds.map((data) => data.created_at.slice(11, 19)),
-
-              datasets: [
-
-                {
-                  label: "Humidity",
-                  data: chartData?.feeds.map((data) => data.field2),
-                  backgroundColor: "#6700CD",
-                  borderColor: "#6700CD"
-                }
-              ]
-
-            }}
-              options={{
-                scales: {
-                  x: {
-                    ticks: {
-                      font: {
-                        weight: "bold"
-                      }
-                    }
-                  },
-                  y: {
-                    ticks: {
-                      font: {
-                        weight: "bold"
-                      }
-                    }
-                  }
-                }
-              }}
-            />
-
-          </div>
-          <div className={`lineT ${detailsActiveH ? "detailsActive" : "details"} ${statusChecker(Object.values(chartData?.feeds.map((data) => parseInt(data.field3))).reduce((a, b) => { return a + b }, 0) / 100, 30)}`}>
-            <div className="status-content">
-              <h4> Obtained Average Value : <span>{Object.values(chartData?.feeds.map((data) => parseInt(data.field3))).reduce((a, b) => { return a + b }, 0) / 100}</span></h4>
-              <h4> Required Average Value : </h4>
-              <h4> Status : <span>{statusChecker(Object.values(chartData?.feeds.map((data) => parseInt(data.field1))).reduce((a, b) => { return a + b }, 0) / 100, 30)}</span></h4>
             </div>
+            <button onClick={() => {
+              showDetailsH();
 
+            }}>{detailsActiveH ? "Hide Remark of Humidity" : "Show Remark about Humidity"}</button>
+            <div className="remark-section">
+
+            </div>
           </div>
-          <button onClick={() => {
-            showDetailsH();
 
-          }}>{detailsActiveH ? "Show chart of Humidity" : "Show Remark about Humidity"}</button>
         </div>
-      </>) : <Loader/>}
+      </>) : <Loader />}
 
     </>
   )

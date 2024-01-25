@@ -1,28 +1,36 @@
+ :root{
+    --bgColor : ##f4e9e9;
+ }
+ body{
+    background-color: var(--bgColor);
+ }
  .chart {
      margin-bottom: 30px;
  }
 
  .lineT {
-     width: 80vw;
+     width: 100%;
      margin: 30px auto;
      padding: 20px;
-     border: 2px solid black;
+     /* border: 2px solid black;
      box-shadow: 6px 11px 19px -10px rgba(0, 0, 0, 0.8);
-     border-radius: 10px;
+     border-radius: 10px; */
  }
 
  .detailsActive {
      display: block;
-     height: 30vh;
+     height: 12vh;
      display: flex;
      flex-direction: column;
      flex-wrap: wrap;
      width: 30vw;
-     position: relative;
+     position: fixed;
+     bottom:5vh;
+     border-radius: 10px;
     }
     
     .status-content {
-        padding:0;
+        margin-bottom:5px;
         width: 100%;
         display: flex;
         justify-content: flex-start;
@@ -32,25 +40,33 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        gap: 20px;
  }
  .status-content h4{
-    font-size: 20px;
+    color: rgba(32, 33, 34, 0.903);
+
+    font-size: 18px;
+ }
+ .status-content h2{
+
+    font-weight: 800;
+    font-size: 22px;
+    border-bottom: 1px solid black;
+    margin-bottom: 10px;
  }
  .status-content span{
     font-size: 15px;
  }
  .Danger{
     border:red;
-    background-color: rgba(252, 74, 74, 0.897);
+    background-color: #f2262a;
  }
  .Safe{
     border:green;
-    background-color: rgba(64, 255, 64, 0.646);
+    background-color: #22bb33;
  }
 
  .detailsActive span {
-     color: rgba(32, 33, 34, 0.848);
+    color:black;
  }
 
  .details {
@@ -66,9 +82,46 @@
      border: none;
      border: 1px solid black;
      border-radius: 13px;
+     cursor:pointer;
  }
 
  button:hover {
      background-color: rgb(37, 36, 35);
      color: rgb(234, 227, 227);
  }
+ .details-section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position:fixed;
+    bottom:0px;
+    left:50%;
+    transform: translateX(-50%);
+    margin:10px auto;
+
+ }
+ .details-section button{
+    width:20vw;
+    margin:0 20px;
+
+ }
+
+ /* slider  */
+
+.swiper {
+  width: 100vw;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 300px;
+  height: 300px;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+}
