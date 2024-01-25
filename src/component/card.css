@@ -1,12 +1,13 @@
 .card {
     border: 1px solid black;
     box-shadow: 6px 6px 17px 0px rgba(0, 0, 0, 0.67);
-    width: 50%;
     border-radius: 20px;
+    width: 300px;
     padding: 10px;
     margin: 10px;
     transition: all 0.3s;
-    background-color: #f3eaea;
+    background-color: #fff8f89c;
+    gap:50px;
 
 }
 

@@ -1,6 +1,10 @@
 .team-section{
-    /* display: flex; */
-
+    background: url(../assests/team.png);
+    padding: 0;
+    background-size: cover;
+    background-position: center;
+    box-shadow: 200px 200px 400px 200px rgba(39, 38, 38, 0.285) inset;
+    height:100vh;
 }
 .team-section h2 {
     display: flex;
@@ -10,23 +14,44 @@
     font-size: 2.5rem;
     letter-spacing: 3px;
     position: relative;
-    margin: 30px auto;
+    color:white;
+    padding-top: 20px;
 }
-.team-section h2::after{
-    content:"";
-    width:10rem;
-    height:.3rem;
+
+.team-section h2::after {
+    content: "";
+    width: 10rem;
+    height: .3rem;
     background-color: blueviolet;
     position: absolute;
-    bottom:-1rem;
-    left:50%;
+    bottom: -1rem;
+    left: 50%;
     transform: translateX(-50%);
     border-radius: 2rem;
 
 }
+/* .swiper{
+    height:89vh;
+} */
 .card-section {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding:20px;
+    padding: 20px;
 }
+
+.swiper-slide {
+    background-position: center;
+    background-size: cover;
+    height: 500px;
+    border-radius: 30px;
+}
+.mySwiper{
+    height:79vh;
+}
+
+.swiper-slide {
+    display: block;
+    margin-left: 20px;
+}
+

@@ -1,127 +1,132 @@
- :root{
-    --bgColor : ##f4e9e9;
- }
- body{
-    background-color: var(--bgColor);
- }
- .chart {
-     margin-bottom: 30px;
- }
+body {
+   margin: 0;
+   padding: 0;
+}
+.chart{
+   background: url("https://plus.unsplash.com/premium_photo-1681487769650-a0c3fbaed85a?q=80&w=1555&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+   box-shadow: -200px -200px 400px 200px rgba(0, 0, 0, 0.58) inset;
+   backdrop-filter: brightness(0);
+   height: calc(100vh - 56px);
 
- .lineT {
-     width: 100%;
-     margin: 30px auto;
-     padding: 20px;
-     /* border: 2px solid black;
-     box-shadow: 6px 11px 19px -10px rgba(0, 0, 0, 0.8);
-     border-radius: 10px; */
- }
+}
 
- .detailsActive {
-     display: block;
-     height: 12vh;
-     display: flex;
-     flex-direction: column;
-     flex-wrap: wrap;
-     width: 30vw;
-     position: fixed;
-     bottom:5vh;
-     border-radius: 10px;
-    }
-    
-    .status-content {
-        margin-bottom:5px;
-        width: 100%;
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        position: absolute;
-        flex-direction: column;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
- }
- .status-content h4{
-    color: rgba(32, 33, 34, 0.903);
 
-    font-size: 18px;
- }
- .status-content h2{
+.detailsActive {
+   display: block;
+   height: 18vh;
+   display: flex;
+   flex-direction: column;
+   flex-wrap: wrap;
+   width: 30vw;
+   position: absolute;
+   bottom: 8vh;
+   border-radius: 10px;
+}
 
-    font-weight: 800;
-    font-size: 22px;
-    border-bottom: 1px solid black;
-    margin-bottom: 10px;
- }
- .status-content span{
-    font-size: 15px;
- }
- .Danger{
-    border:red;
-    background-color: #f2262a;
- }
- .Safe{
-    border:green;
-    background-color: #22bb33;
- }
+.status-content {
+   margin-bottom: 5px;
+   width: 100%;
+   display: flex;
+   justify-content: flex-start;
+   align-items: center;
+   position: absolute;
+   flex-direction: column;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+}
 
- .detailsActive span {
-    color:black;
- }
+.status-content h4 {
+   color: rgba(32, 33, 34, 0.903);
 
- .details {
-     display: none;
-     height: 50vh;
- }
+   font-size: 18px;
+}
 
- button {
-     display: block;
-     margin: 0 auto;
-     padding: 10px;
-     font-size: 18px;
-     border: none;
-     border: 1px solid black;
-     border-radius: 13px;
-     cursor:pointer;
- }
+.status-content h2 {
 
- button:hover {
-     background-color: rgb(37, 36, 35);
-     color: rgb(234, 227, 227);
- }
- .details-section{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position:fixed;
-    bottom:0px;
-    left:50%;
-    transform: translateX(-50%);
-    margin:10px auto;
+   font-weight: 800;
+   font-size: 22px;
+   border-bottom: 1px solid black;
+   margin-bottom: 10px;
+}
 
- }
- .details-section button{
-    width:20vw;
-    margin:0 20px;
+.status-content span {
+   font-size: 15px;
+}
 
- }
+.Danger {
+   border: red;
+   background-color: #f2262a;
+}
 
- /* slider  */
+.Safe {
+   border: green;
+   background-color: #22bb33;
+}
 
+.detailsActive span {
+   color: black;
+}
+
+.details {
+   display: none;
+   height: 50vh;
+}
+
+button {
+   margin: 0 auto;
+   padding: 10px;
+   border: 1px solid black;
+   border-radius: 13px;
+   cursor: pointer;
+}
+
+button:hover {
+   background-color: rgb(37, 36, 35);
+   color: rgb(234, 227, 227);
+}
+
+.details-section {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   position: fixed;
+   bottom: 0px;
+   left: 50%;
+   transform: translateX(-50%);
+   margin: 10px auto;
+
+}
+
+.details-section button {
+   width: 20vw;
+   margin: 0 20px;
+
+}
+
+/* slider  */
 .swiper {
-  width: 100vw;
-  padding-top: 50px;
-  padding-bottom: 50px;
+   height: 63vh;
 }
 
-.swiper-slide {
-  background-position: center;
-  background-size: cover;
-  width: 300px;
-  height: 300px;
+.chartLine {
+   background-color: wheat;
+   width: 100%;
+   margin-top: 30px;
+   background-size: cover;
+   background-position: center;
+   border: 1.5px solid black;
+   border-radius: 20px;
+   cursor: pointer;
 }
 
-.swiper-slide img {
-  display: block;
-  width: 100%;
+.lineT:hover .chartLine {
+   transform: scale(1.05);
+}
+
+.autoplay-progress {
+   display: block;
+   z-index: 300;
+   margin-top: 10px;
+   border-color: #22bb33;
 }

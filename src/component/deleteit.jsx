@@ -98,9 +98,8 @@ const Pulchowk = () => {
                     <Swiper
                         spaceBetween={30}
                         centeredSlides={true}
-                        slidesPerView='2'
                         autoplay={{
-                            delay: 10000,
+                            delay: 2500,
                             disableOnInteraction: false,
                         }}
                         pagination={{
@@ -109,48 +108,8 @@ const Pulchowk = () => {
                         navigation={true}
                         modules={[Autoplay, Pagination, Navigation]}
                         onAutoplayTimeLeft={onAutoplayTimeLeft}
-                        className='swiper'
+                        className="mySwiper"
                     >
-                        
-                        <SwiperSlide className='mySwiper'>
-                            <div className="lineT">
-
-                                <Line className="chartLine" data={{
-                                    labels: chartData?.feeds.map((data) => data.created_at.slice(11, 19)),
-
-                                    datasets: [
-
-                                        {
-                                            label: "PM Index 2.5",
-                                            data: chartData?.feeds.map((data) => data.field3),
-                                            backgroundColor: "#B52B2B",
-                                            borderColor: "#B52B2B"
-                                        }
-                                    ]
-
-                                }}
-                                    options={{
-                                        scales: {
-                                            x: {
-                                                ticks: {
-                                                    font: {
-                                                        weight: "bold"
-                                                    }
-                                                }
-                                            },
-                                            y: {
-                                                ticks: {
-                                                    font: {
-                                                        weight: "bold"
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }}
-                                />
-
-                            </div>
-                        </SwiperSlide>
                         <SwiperSlide className='mySwiper'>
                             <div className="lineT">
 
@@ -189,9 +148,48 @@ const Pulchowk = () => {
                                 />
                             </div>
                         </SwiperSlide>
-                        <SwiperSlide className='mySwiper'>
+                        <SwiperSlide>
                             <div className="lineT">
-                                <Line className="chartLine" data={{
+
+                                <Line data={{
+                                    labels: chartData?.feeds.map((data) => data.created_at.slice(11, 19)),
+
+                                    datasets: [
+
+                                        {
+                                            label: "PM Index 2.5",
+                                            data: chartData?.feeds.map((data) => data.field3),
+                                            backgroundColor: "#19F6C0",
+                                            borderColor: "#19F6C0"
+                                        }
+                                    ]
+
+                                }}
+                                    options={{
+                                        scales: {
+                                            x: {
+                                                ticks: {
+                                                    font: {
+                                                        weight: "bold"
+                                                    }
+                                                }
+                                            },
+                                            y: {
+                                                ticks: {
+                                                    font: {
+                                                        weight: "bold"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }}
+                                />
+
+                            </div>
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <div className="lineT">
+                                <Line data={{
                                     labels: chartData?.feeds.map((data) => data.created_at.slice(11, 19)),
                                     datasets: [
                                         {
@@ -226,9 +224,9 @@ const Pulchowk = () => {
                         </SwiperSlide>
                         <div className="autoplay-progress" slot="container-end">
                             <svg viewBox="0 0 48 48" ref={progressCircle}>
-                                <circle cx="24" cy="24" r="20" ></circle>
+                                <circle cx="24" cy="24" r="20"></circle>
                             </svg>
-                            <span ref={progressContent}>helo</span>
+                            <span ref={progressContent}></span>
                         </div>
 
 
