@@ -242,8 +242,8 @@ const Pulchowk = () => {
 
                                 <h4> Obtained Average Value : <span>{Object.values(chartData?.feeds.map((data) => parseInt(data.field1))).reduce((a, b) => { return a + b }, 0) / 100}
                                 </span></h4>
-                                <h4> Required Average Value : <span>30</span></h4>
-                                <h4> Status : <span>{statusChecker(Object.values(chartData?.feeds.map((data) => parseInt(data.field1))).reduce((a, b) => { return a + b }, 0) / 100, 30)}</span></h4>
+                                <h4> Required Average Value : <span>15</span></h4>
+                                <h4> Status : <span>{statusChecker(Object.values(chartData?.feeds.map((data) => parseInt(data.field1))).reduce((a, b) => { return a + b }, 0) / 100, 15)}</span></h4>
                             </div>
 
                         </div>
@@ -256,8 +256,8 @@ const Pulchowk = () => {
                             <div className="status-content">
                                 <h2>PM Index 2.5</h2>
                                 <h4> Obtained Average Value : <span>{Object.values(chartData?.feeds.map((data) => parseInt(data.field2))).reduce((a, b) => { return a + b }, 0) / 100}</span></h4>
-                                <h4> Required Average Value : 70 </h4>
-                                <h4> Status : <span>{statusChecker(Object.values(chartData?.feeds.map((data) => parseInt(data.field2))).reduce((a, b) => { return a + b }, 0) / 100, 30)}</span></h4>
+                                <h4> Required Average Value : <span>75 </span></h4>
+                                <h4> Status : <span>{statusChecker(Object.values(chartData?.feeds.map((data) => parseInt(data.field2))).reduce((a, b) => { return a + b }, 0) / 100, 75)}</span></h4>
                             </div>
 
                         </div>
@@ -269,9 +269,9 @@ const Pulchowk = () => {
                         <div className={`lineT ${detailsActiveH ? "detailsActive" : "details"} ${statusChecker(Object.values(chartData?.feeds.map((data) => parseInt(data.field3))).reduce((a, b) => { return a + b }, 0) / 100, 100)}`}>
                             <div className="status-content">
                                 <h2>Humidity</h2>
-                                <h4> Obtained Average Value : <span>{Object.values(chartData?.feeds.map((data) => parseInt(data.field3))).reduce((a, b) => { return a + b }, 0) / 100}</span></h4>
-                                <h4> Required Average Value : <span>100</span></h4>
-                                <h4> Status : <span>{statusChecker(Object.values(chartData?.feeds.map((data) => parseInt(data.field1))).reduce((a, b) => { return a + b }, 0) / 100, 100)}</span></h4>
+                                <h4> Obtained Average Value : <span>{Object.values(chartData?.feeds.map((data) => parseInt(data.field3))).reduce((a, b) => { return a + b }, 75) / 100}</span></h4>
+                                <h4> Required Average Value : <span>75</span></h4>
+                                <h4> Status : <span>{statusChecker(Object.values(chartData?.feeds.map((data) => parseInt(data.field1))).reduce((a, b) => { return a + b }, 0) / 100, 75)}</span></h4>
                             </div>
 
                         </div>

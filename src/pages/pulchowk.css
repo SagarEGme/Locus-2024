@@ -63,6 +63,10 @@ body {
    border: green;
    background-color: #22bb33;
 }
+.Normal{
+   border: rgb(200, 231, 45);
+   background-color: #c1eb2b;
+}
 
 .detailsActive span {
    color: black;
@@ -80,7 +84,6 @@ button {
 }
 button p{
    margin: 0 auto;
-   padding: 10px;
    border-radius: 13px;
    font-weight: 600;
    font-size: 18px;
