@@ -33,7 +33,10 @@ img {
 .card:hover .social-links a {
     color: #fff;
 }
-
+.card:hover .social-links a:hover{
+    color:aqua;
+    z-index: 30;
+}
 .card:hover {
     background-color: #27374D;
     cursor: pointer;
@@ -79,5 +82,5 @@ img {
 .social-links a {
     cursor: pointer;
     font-size: 24px;
-    color:#143c78;
+    color:#27374D;
 }

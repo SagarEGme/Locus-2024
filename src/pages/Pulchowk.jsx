@@ -96,6 +96,7 @@ const Pulchowk = () => {
 
                 <div className="chart">
                     <Swiper
+                    grabCursor={true}
                         spaceBetween={30}
                         centeredSlides={true}
                         slidesPerView='2'
@@ -228,7 +229,7 @@ const Pulchowk = () => {
                             <svg viewBox="0 0 48 48" ref={progressCircle}>
                                 <circle cx="24" cy="24" r="20" ></circle>
                             </svg>
-                            <span ref={progressContent}>helo</span>
+                            <span ref={progressContent}></span>
                         </div>
 
 
@@ -239,7 +240,7 @@ const Pulchowk = () => {
                             <div className="status-content">
                                 <h2>Temperature</h2>
 
-                                <h4> Obtained Average Value : <span>{Object.values(chartData?.feeds.map((data) => parseInt(data.field1))).reduce((a, b) => { return a + b }, 0) / 100};
+                                <h4> Obtained Average Value : <span>{Object.values(chartData?.feeds.map((data) => parseInt(data.field1))).reduce((a, b) => { return a + b }, 0) / 100}
                                 </span></h4>
                                 <h4> Required Average Value : <span>30</span></h4>
                                 <h4> Status : <span>{statusChecker(Object.values(chartData?.feeds.map((data) => parseInt(data.field1))).reduce((a, b) => { return a + b }, 0) / 100, 30)}</span></h4>
@@ -249,7 +250,7 @@ const Pulchowk = () => {
                         <button onClick={() => {
                             showDetailsT();
 
-                        }}>{detailsActiveT ? "Hide Remark of Temperature" : "Show Remark about Temperature"}</button>
+                        }}><p>{detailsActiveT ? "Hide Remarks of Temperature" : "Remarks about Temperature"}</p></button>
 
                         <div className={`lineT ${detailsActiveP ? "detailsActive" : "details"} ${statusChecker(Object.values(chartData?.feeds.map((data) => parseInt(data.field1))).reduce((a, b) => { return a + b }, 0) / 100, 30)}`}>
                             <div className="status-content">
@@ -263,7 +264,7 @@ const Pulchowk = () => {
                         <button onClick={() => {
                             showDetailsP();
 
-                        }}>{detailsActiveP ? "Hide Remark of PM Index" : "Show Remark about PM Index"}</button>
+                        }}><p>{detailsActiveP ? "Hide Remarks of PM Index" : "Remarks about PM Index"}</p></button>
 
                         <div className={`lineT ${detailsActiveH ? "detailsActive" : "details"} ${statusChecker(Object.values(chartData?.feeds.map((data) => parseInt(data.field3))).reduce((a, b) => { return a + b }, 0) / 100, 100)}`}>
                             <div className="status-content">
@@ -277,7 +278,7 @@ const Pulchowk = () => {
                         <button onClick={() => {
                             showDetailsH();
 
-                        }}>{detailsActiveH ? "Hide Remark of Humidity" : "Show Remark about Humidity"}</button>
+                        }}><p>{detailsActiveH ? "Hide Remarks of Humidity" : "Remarks about Humidity"}</p></button>
                         <div className="remark-section">
 
                         </div>

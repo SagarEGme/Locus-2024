@@ -8,7 +8,7 @@ header {
 }
 .items {
     display: flex;
-    gap: 70px;
+    gap: 40px;
 }
 .items span {
     font-size: 27px;

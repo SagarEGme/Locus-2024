@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useRef} from 'react'
 import Card from '../component/Card'
 import "./team.css"
 import cr7 from '../assests/cr7.jpg'
@@ -13,26 +13,37 @@ import 'swiper/css/pagination';
 
 
 // import required modules
-import { EffectCoverflow, Pagination } from 'swiper/modules';
+import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 
 
 const Team = () => {
+    const progressCircle = useRef(null);
+    const progressContent = useRef(null);
+    const onAutoplayTimeLeft = (s, time, progress) => {
+        progressCircle.current.style.setProperty('--progress', 1 - progress);
+        progressContent.current.textContent = `${Math.ceil(time / 1000)}s`;
+    };
     return (
         <div className='team-section'>
             <h2>Meet our Team : </h2>
             <div className="card-section">
                 <Swiper
                     grabCursor={true}
+                    spaceBetween={50}
                     centeredSlides={true}
-                    slidesPerView='4'
+                    slidesPerView='3'
+                    autoplay={{
+                        delay: 2000,
+                        disableOnInteraction: true,
+                    }}
                     coverflowEffect={{
                         rotate: 50,
                         stretch: 0,
                         depth: 100,
                         modifier: 1,
                     }}
-                    pagination={true}
-                    modules={[EffectCoverflow, Pagination]}
+                    modules={[Autoplay, Pagination, Navigation]}
+                    onAutoplayTimeLeft={onAutoplayTimeLeft}
                     className="mySwiper"
                 >
                     <SwiperSlide>
@@ -54,6 +65,12 @@ const Team = () => {
                         <Card lk="https://www.linkedin.com/in/the-laughing-tree-93b454274/" fb="https://www.facebook.com/shishir.dahal.18/" name="Shishir Dahal" area="FrontEnd" description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur fugiat, sapiente iure a error adipisci nihil repellat aliquid minus voluptate deserunt nam dolore temporibus accusamus culpa iste fugit praesentium! Ipsa, minima corrupti.
 " photoURL={cr7} />
                     </SwiperSlide>
+                    <div className="autoplay-progress" slot="container-end">
+                            <svg viewBox="0 0 48 48" ref={progressCircle}>
+                                <circle cx="24" cy="24" r="20" ></circle>
+                            </svg>
+                            <span ref={progressContent}></span>
+                        </div>
 
                 </Swiper>
             </div>

@@ -4,7 +4,7 @@
     background-size: cover;
     background-position: center;
     box-shadow: 200px 200px 400px 200px rgba(39, 38, 38, 0.285) inset;
-    height:100vh;
+    height:calc(100vh - 56px);
 }
 .team-section h2 {
     display: flex;
@@ -13,9 +13,10 @@
     text-transform: uppercase;
     font-size: 2.5rem;
     letter-spacing: 3px;
+    padding-top: 10px;
     position: relative;
     color:white;
-    padding-top: 20px;
+    margin-bottom: 20px;
 }
 
 .team-section h2::after {
@@ -30,28 +31,26 @@
     border-radius: 2rem;
 
 }
-/* .swiper{
+.swiper{
     height:89vh;
-} */
+    margin:0 auto;
+}
 .card-section {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 20px;
+    width: 100%;
 }
 
 .swiper-slide {
     background-position: center;
     background-size: cover;
-    height: 500px;
     border-radius: 30px;
-}
-.mySwiper{
-    height:79vh;
+    margin-top: 10px;
 }
 
 .swiper-slide {
     display: block;
-    margin-left: 20px;
+    margin-right: 100px;
 }
 
